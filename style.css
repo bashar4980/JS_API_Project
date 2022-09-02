@@ -14,3 +14,9 @@ body{
     height: 50px;
     border-radius: 100%;
 }
+.newsInfo{
+    padding-top: 15px;
+    display: flex;
+   
+    justify-content: space-between;
+}

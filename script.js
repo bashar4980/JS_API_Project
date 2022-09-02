@@ -15,7 +15,7 @@ const getDisplay = (items) =>{
         newsContainer.classList.add('newsContainer')
         newsContainer.innerHTML = `
 
-        <div class="row">
+        <div class="row gx-5">
         <div class="col-lg-4">
             <img src="${item.image_url}" class="img-fluid w-100" alt="">
         </div>
@@ -24,16 +24,25 @@ const getDisplay = (items) =>{
             <p>${item.details.slice(0,200) + "......."}</p>
             <!-- news autor details -->
             <div class="newsInfo">
-               <div class="newsAuthot d-flex gap-4">
-                   <div>
-                     <img src="${item.author.img}" class="authorImg">
+                <div class="newsAuthot d-flex gap-4">
+                        <div>
+                            <img src="${item.author.img}" class="authorImg">
                      
-                   </div>
-                   <div>
-                       <h5>${item.author.name}</h5>
-                       <p>${item.author.published_date}</p>
-                   </div>
+                        </div>
+                        <div>
+                             <h5>${item.author.name}</h5>
+                            <p class="text-muted">${item.author.published_date}</p>
+                        </div>
+                </div>
+
                <div>
+                    <i class="fa-solid fa-eye text-muted"> ${item.total_view}</i>
+               </div>
+
+                <div>
+                    <button class="btn btn-primary">Show Detail</button>
+                </div>
+
             <div>
         </div>
     </div>
