@@ -1,13 +1,19 @@
-const getNews = async() =>{
-      const url = `https://openapi.programming-hero.com/api/news/category/08`;
-      const res = await fetch(url);
-      const data = await res.json();
-      getDisplay(data.data)
+const getNews = async(id) =>{
+     try{
+        const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        getDisplay(data.data)
+     }
+     catch(err){
+        console.log(err)
+        console.log(err.message)
+     }
 }
 
 
 const getDisplay = (items) =>{
-    console.log(items.length)
+    // console.log(items.length)
     const newsInfo = document.getElementById('newsInfo');
     items.forEach(item => {
         const newsContainer = document.createElement('div');
@@ -48,11 +54,56 @@ const getDisplay = (items) =>{
     </div>
         `
         newsInfo.appendChild(newsContainer)
-        console.log(item)
+        // console.log(item)
         
     });
 }
 
 
 
-getNews()
+getNews('02')
+
+// Category dispaly 
+
+
+// catagory is start
+
+const getCatagories = async () =>{
+    try{
+        const url = `https://openapi.programming-hero.com/api/news/categories`;
+        const res = await fetch(url);
+        const data = await res.json();
+        getCatagoryDisplay(data.data.news_category)
+     }
+     catch(err){
+        console.log(err)
+        console.log(err.message)
+     }
+}
+
+
+const  getCatagoryDisplay = items =>{
+
+    const catagoryContainer = document.getElementById('navbar_nav');
+    items.forEach(item=>{
+       const catagoryName = document.createElement('li');
+       catagoryName.classList.add('nav-item');
+       catagoryName.classList.add('px-2')
+       catagoryName.innerHTML = `
+   
+       <a class="nav-link" onClick='getCatagory' href="#">${item.category_name}</a>
+       `
+       catagoryContainer.appendChild(catagoryName)
+    })
+}
+
+
+const getCatagoryId = (id)=>{
+    console.log(id)
+}
+getCatagories()
+
+
+
+
+//catagory call  end
