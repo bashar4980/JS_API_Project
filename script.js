@@ -15,9 +15,12 @@ const getNews = async(id) =>{
 
 
 const getDisplay = (items) =>{
-    // console.log(items.length)
+   
     const newsInfo = document.getElementById('newsInfo');
-    console.log(items.length)
+    const newsLength = document.getElementById('newsLength');
+ 
+   
+    newsLength.innerText = `This Catagory has ${items.length} news`
     newsInfo.textContent = ''
     items.forEach(item => {
         const newsContainer = document.createElement('div');
@@ -94,6 +97,8 @@ const  getCatagoryDisplay = items =>{
        const catagoryName = document.createElement('li');
        catagoryName.classList.add('nav-item');
 
+
+     
       
        catagoryName.classList.add('px-2')
        catagoryName.innerHTML = `
