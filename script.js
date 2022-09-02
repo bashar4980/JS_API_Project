@@ -4,6 +4,8 @@ const getNews = async(id) =>{
         const res = await fetch(url);
         const data = await res.json();
         getDisplay(data.data)
+        
+        
      }
      catch(err){
         console.log(err)
@@ -15,6 +17,8 @@ const getNews = async(id) =>{
 const getDisplay = (items) =>{
     // console.log(items.length)
     const newsInfo = document.getElementById('newsInfo');
+    console.log(items.length)
+    newsInfo.textContent = ''
     items.forEach(item => {
         const newsContainer = document.createElement('div');
         newsContainer.classList.add("col-lg-12");
@@ -54,14 +58,14 @@ const getDisplay = (items) =>{
     </div>
         `
         newsInfo.appendChild(newsContainer)
-        // console.log(item)
+       
         
     });
 }
 
 
 
-getNews('02')
+getNews('08')
 
 // Category dispaly 
 
@@ -85,25 +89,35 @@ const getCatagories = async () =>{
 const  getCatagoryDisplay = items =>{
 
     const catagoryContainer = document.getElementById('navbar_nav');
+   
     items.forEach(item=>{
        const catagoryName = document.createElement('li');
        catagoryName.classList.add('nav-item');
+
+      
        catagoryName.classList.add('px-2')
        catagoryName.innerHTML = `
-   
-       <a class="nav-link" onClick='getCatagory' href="#">${item.category_name}</a>
+
+       <a class="nav-link " onClick="getCatagoryId('${item.category_id}')" href="#">${item.category_name}</a>
        `
        catagoryContainer.appendChild(catagoryName)
+      
+      
     })
 }
 
 
 const getCatagoryId = (id)=>{
-    console.log(id)
+    const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
+
+
+ 
+  getNews(id)
 }
 getCatagories()
 
 
 
 
-//catagory call  end
+
+
