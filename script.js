@@ -74,6 +74,7 @@ const getDisplay = (items) => {
     // console.log(item)
     newsInfo.appendChild(newsContainer);
   });
+  loadingData(false)
 };
 
 getNews("08");
@@ -153,24 +154,44 @@ const getCatagories = async () => {
 };
 
 const getCatagoryDisplay = (items) => {
+
   const catagoryContainer = document.getElementById("navbar_nav");
 
   items.forEach((item) => {
+   
     const catagoryName = document.createElement("li");
     catagoryName.classList.add("nav-item");
 
     catagoryName.classList.add("px-2");
     catagoryName.innerHTML = `
 
-       <a class="nav-link " onClick="getCatagoryId('${item.category_id}')" href="#">${item.category_name}</a>
+       <a class="nav-link "  onClick="getCatagoryId('${item.category_id}') " href="#">${item.category_name}  </a>
+
        `;
+      
     catagoryContainer.appendChild(catagoryName);
+   
   });
+  
 };
 
 const getCatagoryId = (id) => {
+  console.log("Bashar")
+  loadingData(true)
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
 
   getNews(id);
 };
 getCatagories();
+
+//loading data
+
+const loadingData = isLoading =>{
+  const loadingSpiner = document.getElementById('loadingData') ;
+  if(isLoading){
+    loadingSpiner.classList.remove('d-none')
+  }
+  else{
+    loadingSpiner.classList.add('d-none')
+  }
+}

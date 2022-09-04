@@ -24,4 +24,7 @@ body{
  color: #7532FA;
 }
 
+#main_menu{
+    margin-left: auto!important;
+}
 /* Style the buttons */

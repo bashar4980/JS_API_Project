@@ -16,24 +16,20 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container">
-              <a class="navbar-brand" href="#">Navbar</a>
+              <a class="navbar-brand fw-bold" href="#">News <span class="text-primary">Golory</span></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse">
-                <ul class="navbar-nav" >
+                <ul class="navbar-nav"  id="main_menu">
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">Blog</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                  </li>
+                
+                  
                 </ul>
               </div>
             </div>
@@ -60,9 +56,7 @@
        <div class="container py-5">
         <!-- Modal news Details -->
         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" >
-  Launch demo modal
-</button>
+
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,7 +77,13 @@
   </div>
 </div>
         <!-- Modal news Details -->
+        <div class="d-flex justify-content-center d-none py-5" id="loadingData">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
         <h3 id="newsLength" class="text-center py-5"></h3>
+        
         <div class="row g-4" id="newsInfo">
          
         </div>
