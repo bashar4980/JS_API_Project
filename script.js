@@ -16,21 +16,23 @@ const getDisplay = (items) => {
 
   newsLength.innerText = `This Catagory has ${items.length} news`;
   newsInfo.textContent = "";
+  console.log(items[0].total_view)
   items.forEach((item) => {
+   
     const newsContainer = document.createElement("div");
     newsContainer.classList.add("col-lg-12");
     newsContainer.classList.add("newsContainer");
     newsContainer.innerHTML = `
 
  <div class="row">
-        <div class="col-lg-4 text-center">
+        <div class="col-lg-4 col-md-4 col-sm-12 text-center" id="img_right">
             <img src="${item.thumbnail_url}" class="w-75 " alt="">
         </div>
-    <div class="col-lg-8 mt-5">
+    <div class="col-lg-8 col-md-8 col-sm-12 mt-5 p-2">
          <div>
           <div> 
           <h4>${item.title}</h4>
-          <p>${item.details.slice(0, 200) + "......."}</p>
+          <p>${item.details.slice(0, 100) + "......."}</p>
           
           </div>
             <!-- news autor details -->
@@ -47,7 +49,7 @@ const getDisplay = (items) => {
                                  : "Author Name is not found"
                              }</h5>
                             <p class="text-muted">${
-                              item.author.published_date
+                              item.author.published_date ? item.author.published_date : "No Date Found"
                             }</p>
                         </div>
                 </div>
@@ -106,7 +108,7 @@ const getDetaildataDisplay = (data) => {
                         data[0].author.name ? data[0].author.name : "Name is not found"
                       }</h5>
                       <p class="text-muted">${
-                        data[0].author.published_date
+                        data[0].author.published_date ? data[0].author.published_date : "No data found"
                       }</p>
                 </div>
          </div>
@@ -176,7 +178,7 @@ const getCatagoryDisplay = (items) => {
 };
 
 const getCatagoryId = (id) => {
-  console.log("Bashar")
+
   loadingData(true)
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
 

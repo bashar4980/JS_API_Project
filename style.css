@@ -20,6 +20,8 @@ body{
    
     justify-content: space-between;
 }
+
+
 #navbar_nav li:hover a{
  color: #7532FA;
 }
@@ -28,3 +30,17 @@ body{
     margin-left: auto!important;
 }
 /* Style the buttons */
+@media screen and (max-width:991px) {
+    #img_right img{
+        width: 100%!important;
+    }
+}
+@media screen and (max-width:460px) {
+    .newsInfo{
+        flex-direction: column;
+        gap: 10px;
+    }
+    #img_right img{
+        width: 100%!important;
+    }
+}
