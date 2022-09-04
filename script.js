@@ -6,7 +6,7 @@ const getNews = async (id) => {
     getDisplay(data.data);
   } catch (err) {
     console.log(err);
-    console.log(err.message);
+    
   }
 };
 
@@ -77,7 +77,7 @@ const getDisplay = (items) => {
     </div>
 </div>
         `;
-    // console.log(item)
+   
     newsInfo.appendChild(newsContainer);
   });
   loadingData(false)
@@ -87,11 +87,16 @@ getNews("08");
 
 // Category dispaly
 const getDetails = async (id) => {
+ try{
   const url = `https://openapi.programming-hero.com/api/news/${id}`;
-  const res = await fetch(url);
-  const data = await res.json();
-  console.log(data.data);
-  getDetaildataDisplay(data.data);
+ const res = await fetch(url);
+ const data = await res.json();
+
+ getDetaildataDisplay(data.data);
+ }
+ catch(err){
+  console.log(err)
+ }
 };
 
 const getDetaildataDisplay = (data) => {
@@ -155,7 +160,7 @@ const getCatagories = async () => {
     getCatagoryDisplay(data.data.news_category);
   } catch (err) {
     console.log(err);
-    console.log(err.message);
+    
   }
 };
 
