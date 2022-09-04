@@ -16,7 +16,11 @@ const getDisplay = (items) => {
 
   newsLength.innerText = `This Catagory has ${items.length} news`;
   newsInfo.textContent = "";
-  console.log(items[0].total_view)
+  items.sort(function( a, b ){
+     return b.total_view - a.total_view;
+     
+    
+  })
   items.forEach((item) => {
    
     const newsContainer = document.createElement("div");
