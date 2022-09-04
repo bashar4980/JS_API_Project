@@ -29,6 +29,10 @@ body{
 #main_menu{
     margin-left: auto!important;
 }
+
+.card{
+    height: 100%;
+}
 /* Style the buttons */
 @media screen and (max-width:991px) {
     #img_right img{
