@@ -28,6 +28,11 @@ body{
 
 #main_menu{
     margin-left: auto!important;
+    display: flex;
+    flex-direction: row!important;
+}
+#main_menu li a{
+    margin-left: 10px;
 }
 
 .card{

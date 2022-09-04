@@ -168,7 +168,7 @@ const getCatagoryDisplay = (items) => {
     const catagoryName = document.createElement("li");
     catagoryName.classList.add("nav-item");
 
-    catagoryName.classList.add("px-2");
+    // catagoryName.classList.add("px-1");
     catagoryName.innerHTML = `
 
        <a class="nav-link "  onClick="getCatagoryId('${item.category_id}') " href="#">${item.category_name}  </a>
